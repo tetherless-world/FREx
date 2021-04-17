@@ -1,8 +1,10 @@
 ---
-sort: 2
+sort: 1
 ---
 
-# Overview
+# About FREx
+
+## Overview
 
 overview introducing the motivation for frex
 
