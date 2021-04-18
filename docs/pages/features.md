@@ -202,11 +202,7 @@ from frex.pipeline_stages.scorers import CandidateRanker
 from frex.models import Explanation
 from my_app.pipeline_stages import MyGenerator, MyFilterer, MyScorer
 
-class MyPipe(Pipeline):
-    def __init__(self, *):
-        Pipeline.__init__(
-            self, 
-            stages=(
+example_pipe = Pipeline(stages=(
                 MyGenerator(...),
                 MyFilterer(
                     filter_explanation=Explanation(
