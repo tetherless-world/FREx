@@ -106,4 +106,52 @@ class RecommendMealPlanPipeline(Pipeline):
 
 ## Example Output
 
-output examples
+In our implemented example, we use a relatively small subset of FoodKG -
+only 5,000 recipes compared to the roughly 1 million in the full dataset -
+since the runtime of our pipelines and querying can become long when dealing
+with huge knowledge graphs. The recommendations and similarity of recipe therefore
+probably aren't too great, but the purpose of this prototype is moreso to view
+how we can use FREx to develop an app and how it can show explanations.
+
+The json below shows an example of a meal plan output for a test user, providing
+2 recipes each day for 3 days. The explanations for each recipe correspond to
+the stages that the recipe candidate passed through in the recommender pipeline.
+
+``` json
+mealplan_days:
+    0:
+        day_explanation:
+            explanation_string: "This ia a set of recommended recipes to eat for this day, based on suggesting recipes that you are likely to like in general."
+        meals:	
+            0:	{…}
+            1:	
+                recipe_name: "Pizza with Pepperoni and Veggies"
+                calories(kcal): 499.722919
+                carbohydrates(g): 48.121708
+                sodium(mg): 1599.402352
+                explanation:
+                    0:
+                        explanation_string: "This recipe had a similarity score of 0.9967120851070816 to one of your favorite recipes, Open-Face Portabella Sandwiches."
+                    1:	    
+                        explanation_string: "This recipe does not contain any ingredients that are prohibited by you."
+                    2:	    
+                        explanation_string: "Adheres to guideline: As for the general population, people with diabetes should limit sodium consumption to <2,300 mg/day."
+                    3:	
+                        explanation_string: "Adheres to guideline: 1,500–1,800 kcal/day for men, adjusted for the individuals baseline body weight"
+                ingredients:	
+                    0: "Italian dressing"
+                    1: "pepperoni"
+                    2: "black olives"
+                    3: "fresh thyme"
+                    4: "red onions"
+                    5: "fresh mushrooms"
+                    6: "ready - to - use baked pizza crust"
+                    7: "mozzarella cheese"
+                    8: "cherry tomatoes"
+    1:
+        day_explanation: {…}
+        meals: […]
+    2: {…}
+overall_explanation:   	
+    explanation_string: "This ia a meal plan that was generated for 3 days of meals, eating 2 meals each day."
+```
