@@ -1,5 +1,5 @@
 ---
-sort: 12
+sort: 4
 ---
 
 # Course Recommendation

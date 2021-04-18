@@ -22,7 +22,6 @@ from dataclasses import dataclass
 from dataclasses_json import dataclass_json
 from frex.models import DomainObject
 
-
 @dataclass_json
 @dataclass(frozen=True)
 class MyItem(DomainObject):
@@ -32,7 +31,7 @@ class MyItem(DomainObject):
 ``` 
 
 ```note
-In FREx, we implement DomainObjects using the [dataclass](https://docs.python.org/3/library/dataclasses.html)
+In FREx, we implement DomainObjects using the [dataclass](https://docs.python.org/3/library/dataclasses.html) 
 decorator. This decorator lets you skip over a lot of boilerplate code, like defining
 `__init__`, `__eq__`, `__hash__` and so on, for classes that mainly serve to
 just store data.  
@@ -72,15 +71,15 @@ Candidates then can be scored based on some strategies that are relevant
 to your application, and based on these scores you can re-rank the candidates
 to choose your final recommendations.
 
-FREx controls this overall process using the `Pipeline` class, and the various
-the stages that candidates pass through are implemented as `PipelineStage`s.
+FREx controls this overall process using the Pipeline class, and the various
+the stages that candidates pass through are implemented as PipelineStages.
 
 ### Pipeline
 
 The [`Pipeline`](https://solashirai.github.io/FREx/build/html/frex.pipelines.html) is
 a callable class. Its initialization arguments include the stages that are involved in
-the pipeline. These "stages" can either be `PipelineStage` classes or other
-`Pipeline` classes, which can let you reuse full Pipelines within Pipelines.
+the pipeline. These "stages" can either be PipelineStage classes or other
+Pipeline classes, which can let you reuse full Pipelines within Pipelines.
 
 Calling the Pipeline will run the underlying pipeline stages, passing
 along the relevant arguments of `context` (which can be anything - depends on what context
@@ -104,6 +103,12 @@ class MyPipe(Pipeline):
                 MyFilterer(...),
                 MyScorer(...),
                 CandidateRanker()))
+
+...
+
+my_pipe = MyPipe()
+my_context = ...
+top_5_results = list(my_pipe(context=my_context))[:5]
 ``` 
 
 ### Pipeline Stages
@@ -137,7 +142,7 @@ class MyGenerator(CandidateGenerator):
             yield MyCandidate(...)
 ``` 
 
-### Candidate Filterer
+#### Candidate Filterer
 
 `CandidateFilterer` is a stage for filtering unsuitable candidates. From
 the base class, custom filterers can be minimally constructed by defining the
@@ -155,7 +160,7 @@ class MyFilterer(CandidateFilterer):
         return MyCandidate.domain_object.color == 'blue'
 ``` 
 
-### Candidate Scorer
+#### Candidate Scorer
 
 A `CandidateScorer` stage scores the candidate based on some scoring function
 that you define. Similarly to the filterer, a new scorer can minimally
@@ -178,3 +183,40 @@ of candidate items to choose the final recommendation(s).
 
 ## Explanations
 
+As Candidates are generated and pass through each stage of a pipeline in FREx,
+we want to be able to provide explanations about what was done to Candidates.
+Currently, we do this using an `Explanation` class, which simply consists of a 
+string (i.e., the explanation text). For each pipeline stage, when yielding
+a Candidate to the next stage, an explanation and score is attached to update
+the Candidate. Explanation are defined by the developer and attached to stages
+at initialization.
+
+More complicated explanations can be created by extending the Explanation class.
+The Explanation class is __very__ simple, since our main motivation for it was
+to provide a more structured representation to capture the explanations rather
+than passing around magic strings every which way.
+
+ ```python
+from frex.pipelines import Pipeline
+from frex.pipeline_stages.scorers import CandidateRanker 
+from frex.models import Explanation
+from my_app.pipeline_stages import MyGenerator, MyFilterer, MyScorer
+
+class MyPipe(Pipeline):
+    def __init__(self, *):
+        Pipeline.__init__(
+            self, 
+            stages=(
+                MyGenerator(...),
+                MyFilterer(
+                    filter_explanation=Explanation(
+                        explanation_string="This item isn't blue."
+                    ) 
+                ),
+                MyScorer(
+                    scorer_explanatoin=Explanation(
+                        explanation_string="This item is expensive."
+                    ) 
+                ),
+                CandidateRanker()))
+``` 
