@@ -216,3 +216,29 @@ example_pipe = Pipeline(stages=(
                 ),
                 CandidateRanker()))
 ``` 
+
+## Outputs
+
+After running a Pipeline to generate recommendations, the output results
+will be Candidate objects that are populated with relevant information 
+that was passed in by each of the stages the Candidate passed through. 
+This includes the context involved in the recommendation pipeline,
+the actual object that is being recommended, scores applied to the candidate,
+and explanations supplied by each stage.
+
+``` 
+output_results = [
+    MyCandidate(
+        #the context used to run the pipeline, whatever you want to define
+        #context to be in your application. This might be as simple as
+        #just pointint to the user for which this recommendation was produced
+        context=MyUser(...),
+        #the item being recommended
+        domain_object=MyItem(...),
+        #scores applied to the candidate by each pipeline stage
+        applied_scores=[0.5, 0, 3.9],
+        #explanations applied by each pipeline stage
+        applied_explanations=[Explanation(...), ...]
+    ),
+    ...]
+``` 
