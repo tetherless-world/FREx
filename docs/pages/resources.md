@@ -4,6 +4,9 @@ sort: 6
 
 # Resources
 
+Links to resources involved with FREx, including repositories of the 
+example applications implemented using FREx, can be found below. 
+
 Resource | Link
 ---- | ----
 FREx Package | [FREx Github](https://github.com/solashirai/explainablerecommenderframework)

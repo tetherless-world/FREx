@@ -150,4 +150,4 @@ big focus of this prototype example, the solver is not very well optimized.
 As a result, it can sometimes take a fairly large amount of time to generate
 a plan for a single student. Runtimes were not always consistent, but
 generating a plan for a student with no completed courses (i.e., generating
-a full plan for 4 years / 8 semesters of university) could take around 30 minutes.
+a full plan for 4 years / 8 semesters of university) usually takes around 5 minutes.
