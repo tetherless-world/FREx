@@ -19,8 +19,7 @@ Embeddings of recipes produced by RECIPTOR are used in FoodRec to check for
 similarity between recipes, and we use this similarity in generating recipe
 candidates to recommend. 
 
-The implementation of FoodRec is viewable on [github](https://github.com/CognitiveHorizons/RPI-HEALS-FoodKG-Semantic-Substitutions)
- - todo this isn't a public repo, moving it soon  
+The implementation of FoodRec is viewable on [github](https://github.com/solashirai/FoodRec)
 
 ## Data and Resources
 
