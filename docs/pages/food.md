@@ -116,7 +116,7 @@ The json below shows an example of a meal plan output for a test user, providing
 2 recipes each day for 3 days. The explanations for each recipe correspond to
 the stages that the recipe candidate passed through in the recommender pipeline.
 
-``` json
+``` 
 mealplan_days:
     0:
         day_explanation:
