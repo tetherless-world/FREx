@@ -32,8 +32,8 @@ class MyItem(DomainObject):
 
 ```note
 In FREx, we implement DomainObjects using the [dataclass](https://docs.python.org/3/library/dataclasses.html) 
-decorator. This decorator lets you skip over a lot of boilerplate code, like defining
-`__init__`, `__eq__`, `__hash__` and so on, for classes that mainly serve to
+decorator. This decorator lets you skip over a lot of boilerplate code, like defining 
+`__init__`, `__eq__`, `__hash__` and so on, for classes that mainly serve to 
 just store data.  
 ```
 
