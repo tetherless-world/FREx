@@ -9,5 +9,4 @@ This website documents some of the key features and motivations of FREx, as
 well as a simple walkthrough to get started with using it in a new project.
 
 We also present two implementation examples of of recommender systems, for
-the domains of [university course recommendation](/FREx/pages/escore.html) and 
-[healthy food recommendation](/FREx/pages/food.html).  
+the domains of [healthy food recommendation](/FREx/pages/food.html) and [university course recommendation](/FREx/pages/escore.html).  
