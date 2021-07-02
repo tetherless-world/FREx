@@ -40,6 +40,6 @@ You will now be able to use FREx in your project like any other Python package, 
 
 ```warning
 One of FREx's requirements, [ortools](https://pypi.org/project/ortools/), may require you to 
-be using a 64-bit installation of Python. If you are seeing an error related to ortools
+be using a 64-bit installation of Python. If you are seeing an error related to ortools 
 while trying to pip install FREx, consider checking which Python installation you are using.  
 ```
