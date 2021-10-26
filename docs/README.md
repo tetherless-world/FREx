@@ -1,6 +1,6 @@
 ## ISWC Poster
 
-The slides used for the ISWC 2021 Poster sessino can be found [here.](https://github.com/tetherless-world/FREx/blob/gh-pages/ISWC%20FREx%20Poster.pdf)
+The slides used for the ISWC 2021 Poster session can be found [here.](https://github.com/tetherless-world/FREx/blob/gh-pages/ISWC%20FREx%20Poster.pdf)
 
 # FREx - A **F**ramework for **R**ecommendations with **Ex**planations
 
