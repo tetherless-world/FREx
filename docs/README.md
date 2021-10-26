@@ -1,3 +1,7 @@
+## ISWC Poster
+
+<embed src="https://github.com/tetherless-world/FREx/blob/gh-pages/ISWC%20FREx%20Poster.pdf" width="600px" height="500px" />
+
 # FREx - A **F**ramework for **R**ecommendations with **Ex**planations
 
 FREx (**F**ramework for **R**ecommendations with **Ex**planations) is a Python package created to support the development of recommender systems,
