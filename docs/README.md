@@ -1,6 +1,6 @@
 ## ISWC Poster
 
-<iframe src="https://github.com/tetherless-world/FREx/blob/gh-pages/ISWC%20FREx%20Poster.pdf" width="600px" height="500px" />
+The [here.](https://github.com/tetherless-world/FREx/blob/gh-pages/ISWC%20FREx%20Poster.pdf)
 
 # FREx - A **F**ramework for **R**ecommendations with **Ex**planations
 
